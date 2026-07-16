@@ -1,0 +1,1 @@
+Amazon Web Services (AWS) is a cloud computing platform offering services for compute, storage, networking, databases, analytics, machine learning, and artificial intelligence. Amazon Bedrock enables developers to build generative AI applications using foundation models through a unified API without managing infrastructure.
