@@ -15,25 +15,6 @@ The application loads text files, generates embeddings using Sentence Transforme
 - Google Gemini 3.1 Flash Lite
 - Streamlit web interface
 
-
-## Architecture Flow
-
-Text Documents
-      ↓
-Load Documents
-      ↓
-Chunk Documents
-      ↓
-SentenceTransformer
-      ↓
-FAISS
-      ↓
-Retrieve Context
-      ↓
-Gemini
-      ↓
-Answer
-
 ## Project Structure
 
 ```
