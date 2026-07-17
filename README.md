@@ -81,3 +81,6 @@ streamlit run app.py
 - What is AWS?
 - What is Artificial Intelligence?
 - What is Amazon Bedrock?
+
+Time spent:
+Approximately 4 hours
