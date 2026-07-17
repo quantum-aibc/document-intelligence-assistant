@@ -17,21 +17,13 @@ The application loads text files, generates embeddings using Sentence Transforme
 
 ## Architecture Flow
 
-Text Documents
-      ↓
-Load Documents
-      ↓
-Chunk Documents
-      ↓
-SentenceTransformer
-      ↓
-FAISS
-      ↓
-Retrieve Context
-      ↓
-Gemini
-      ↓
-Answer
+1. Load Text Documents
+2. Chunk Documents
+3. Generate Embeddings using SentenceTransformer
+4. Store Embeddings in FAISS
+5. Retrieve Relevant Context
+6. Send Context to Gemini
+7. Generate Answer
 
 ## Project Structure
 
