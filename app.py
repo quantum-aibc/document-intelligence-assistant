@@ -8,10 +8,8 @@ from dotenv import load_dotenv
 from google import genai
 from sentence_transformers import SentenceTransformer
 
-# ======================================================
-# Configuration
-# ======================================================
 
+# Configuration
 TOP_K = 1
 CHUNK_SIZE = 100
 CHUNK_OVERLAP = 20
@@ -21,9 +19,8 @@ LLM_MODEL = "gemini-3.1-flash-lite"
 
 DATA_FOLDER = "data"
 
-# ======================================================
+
 # Load Environment Variables
-# ======================================================
 
 load_dotenv()
 
@@ -35,9 +32,8 @@ if not GOOGLE_API_KEY:
 
 client = genai.Client(api_key=GOOGLE_API_KEY)
 
-# ======================================================
+
 # Streamlit UI
-# ======================================================
 
 st.set_page_config(
     page_title="Document RAG Chatbot",
@@ -50,9 +46,8 @@ st.write(
     "Ask questions about the documents stored in the data folder."
 )
 
-# ======================================================
-# Load Embedding Model
-# ======================================================
+
+# Loading Embedding Model
 
 @st.cache_resource
 def load_embedding_model():
@@ -65,9 +60,8 @@ def load_embedding_model():
 
 embedding_model = load_embedding_model()
 
-# ======================================================
-# Load Documents
-# ======================================================
+
+# Loading Documents
 
 @st.cache_resource
 def load_documents():
@@ -98,9 +92,8 @@ def load_documents():
 
 documents = load_documents()
 
-# ======================================================
-# Chunk Documents
-# ======================================================
+
+# Chunking Documents
 
 def chunk_documents(documents):
 
@@ -132,9 +125,8 @@ def chunk_documents(documents):
 
 chunks = chunk_documents(documents)
 
-# ======================================================
-# Build FAISS Index
-# ======================================================
+
+# Building FAISS Index
 
 @st.cache_resource
 def build_vector_store(chunks):
@@ -160,9 +152,8 @@ def build_vector_store(chunks):
 
 index = build_vector_store(chunks)
 
-# ======================================================
-# Sidebar
-# ======================================================
+
+# Sidebar for Streamlit UI
 
 with st.sidebar:
 
@@ -173,9 +164,8 @@ with st.sidebar:
     st.write(f"Embedding Model: {EMBEDDING_MODEL}")
     st.write(f"Language Model: {LLM_MODEL}")
 
-# ======================================================
+
 # User Question
-# ======================================================
 
 question = st.text_input(
     "Enter your question"
@@ -251,9 +241,8 @@ Answer:
 
             st.error(f"Error: {error}")
 
-# ======================================================
+
 # Footer
-# ======================================================
 
 st.markdown("---")
 
